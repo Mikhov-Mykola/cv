@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме / Resume</title>
+    <style>
+        :root {
+            --skin-bg: #f3e0d0;
+            --card-bg: #ffffff;
+            --text-color: #2f2f2f;
+            --accent: #7d4f3f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #f8e8dc 0%, #f3e0d0 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .lang-button {
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            background: #fff8f3;
+            color: var(--accent);
+            padding: 10px 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .card {
+            margin-top: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .profile-image {
+            flex: 0 0 220px;
+            text-align: center;
+        }
+
+        .profile-image img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .info-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .info-list span {
+            font-weight: 700;
+        }
+
+        .about {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #e4c8b8;
+            line-height: 1.7;
+        }
+
+        .section-title {
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            .profile {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .profile-image,
+            .profile-info {
+                flex: none;
+                width: 100%;
+            }
+
+            .top-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="top-row">
+            <h1 id="pageTitle">Резюме</h1>
+            <button class="lang-button" id="langToggle">English</button>
+        </div>
+
+        <div class="card">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="photo1.jpg" alt="Фото" onerror="this.src='https://via.placeholder.com/220x220?text=Photo';">
+                </div>
+                <div class="profile-info">
+                    <h2 class="info-title" id="personalTitle">Персональна інформація</h2>
+                    <ul class="info-list">
+                        <li><span id="labelName">Ім'я:</span> <span id="valueName">Міхов Микола</span></li>
+                        <li><span id="labelEmail">Email:</span> <span id="valueEmail">Mixov13@gmail.com</span></li>
+                        <li><span id="labelPhone">Телефон:</span> <span id="valuePhone">+380 000 000 000</span></li>
+                        <li><span id="labelAddress">Адреса:</span> <span id="valueAddress">Україна, Тернопіль</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="about">
+                <h3 class="section-title" id="aboutTitle">Про себе</h3>
+                <p id="aboutText">До війська жив у Маріуполі, працював на заводі «Азовсталь» токарем-розточувальником із програмним керуванням. У 2020 році пішов служити за контрактом. У липні 2025 року звільнився за станом здоров’я. Я є ВПО, наразі проживаю в місті Тернопіль. За станом здоров’я не можу працювати за професією, і загалом фізична праця мені протипоказана: не можна піднімати більше двох кілограмів, а також є багато інших обмежень. Від курсу в першу чергу хочу отримати початкові знання і навички, щоб надалі вчитися та розвиватися в цьому напрямку. У подальшому — знайти роботу.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const texts = {
+            ua: {
+                title: 'Резюме',
+                button: 'English',
+                personalTitle: 'Персональна інформація',
+                labelName: "Ім'я:",
+                labelEmail: 'Email:',
+                labelPhone: 'Телефон:',
+                labelAddress: 'Адреса:',
+                aboutTitle: 'Про себе',
+                aboutText: 'До війська жив у Маріуполі, працював на заводі «Азовсталь» токарем-розточувальником із програмним керуванням. У 2020 році пішов служити за контрактом. У липні 2025 року звільнився за станом здоров’я. Я є ВПО, наразі проживаю в місті Тернопіль. За станом здоров’я не можу працювати за професією, і загалом фізична праця мені протипоказана: не можна піднімати більше двох кілограмів, а також є багато інших обмежень. Від курсу в першу чергу хочу отримати початкові знання і навички, щоб надалі вчитися та розвиватися в цьому напрямку. У подальшому — знайти роботу.'
+            },
+            en: {
+                title: 'Resume',
+                button: 'Українська',
+                personalTitle: 'Personal Information',
+                labelName: 'Name:',
+                labelEmail: 'Email:',
+                labelPhone: 'Phone:',
+                labelAddress: 'Address:',
+                aboutTitle: 'About Me',
+                aboutText: 'Before the war, I lived in Mariupol and worked at the Azovstal plant as a CNC lathe operator. In 2020 I joined the military under contract. In July 2025 I was discharged for health reasons. I am internally displaced and currently live in Ternopil. Due to my health, I cannot work in my profession, and physical labor is generally contraindicated: I cannot lift more than two kilograms, and I have many other limitations. From the course I expect to gain basic knowledge and skills to continue learning and developing in this direction. In the future, I want to find work.'
+            }
+        };
+
+        let currentLang = 'ua';
+
+        function updateLanguage() {
+            const lang = texts[currentLang];
+            document.getElementById('pageTitle').textContent = lang.title;
+            document.getElementById('langToggle').textContent = lang.button;
+            document.getElementById('personalTitle').textContent = lang.personalTitle;
+            document.getElementById('labelName').textContent = lang.labelName;
+            document.getElementById('labelEmail').textContent = lang.labelEmail;
+            document.getElementById('labelPhone').textContent = lang.labelPhone;
+            document.getElementById('labelAddress').textContent = lang.labelAddress;
+            document.getElementById('aboutTitle').textContent = lang.aboutTitle;
+            document.getElementById('aboutText').textContent = lang.aboutText;
+        }
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'ua' ? 'en' : 'ua';
+            updateLanguage();
+        });
+
+        updateLanguage();
+    </script>
+</body>
+</html>
